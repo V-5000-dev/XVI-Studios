@@ -18,13 +18,15 @@
 --color-status-planned:       #2b5bb6;  
 --color-status-considering: #A87BFA; 
 }
-.html {
+html {
+    margin: 0;
+    padding: 0;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     max-width: 100%;
     overflow-x: hidden;
 }
-.body {
+body {
     font-family: var((var(--font-body)));
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -46,22 +48,29 @@ h1, h2, h3, h4, h5, h6 {
   color:        var(--color-text);
 }
 
-.h1 { font-size: clamp(3rem, 5vw, 4rem); letter-spacing: -0.02em; }
-.h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -0.01em; margin-top: 2.5rem; }
-.h3 { font-size: 1.2rem; font-weight: 600; margin-top: 2rem; }
-.h4 { font-size: 1rem; font-weight: 600; margin-top: 2rem; }
-.h5 {font-size: 0.875rem;font-weight: 600;letter-spacing: 0.06em;text-transform: uppercase;margin-top: 1.5rem;}
-.h6 {font-size: 0.75rem;font-weight: 600;letter-spacing: 0.08em;text-transform: uppercase;color: var(--color-muted);margin-top: 1.5rem;}
+h1 { font-size: clamp(3rem, 5vw, 4rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -0.01em; margin-top: 2.5rem; }
+h3 { font-size: 1.2rem; font-weight: 600; margin-top: 2rem; }
+h4 { font-size: 1rem; font-weight: 600; margin-top: 2rem; }
+h5 {font-size: 0.875rem;font-weight: 600;letter-spacing: 0.06em;text-transform: uppercase;margin-top: 1.5rem;}
+h6 {font-size: 0.75rem;font-weight: 600;letter-spacing: 0.08em;text-transform: uppercase;color: var(--color-muted);margin-top: 1.5rem;}
 
 p  { max-width: 68ch; margin-top: 0.75rem; }
-.banner {
-
-    display:flex;
-    justify-content: center;
+html, body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    z-index: 100;
-    height: inherit;
-    overflow:visible;
+}
+.page-content { padding: 0; }
+
+.banner {
+    width: 100%;
+}
+
+.banner img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 .logo {
   width:  38px;
@@ -101,6 +110,7 @@ p  { max-width: 68ch; margin-top: 0.75rem; }
 }
 
 .nav-link {
+  font-family: var(--font-display);
   font-size:   0.9rem;
   font-weight: 500;
   color:       var(--color-muted);
@@ -151,6 +161,7 @@ p  { max-width: 68ch; margin-top: 0.75rem; }
   right:         0;
   left:          auto;
   min-width:     200px;
+  font-family: var(--font-body);
   background:    var(--color-surface);
   border:        1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -174,6 +185,7 @@ p  { max-width: 68ch; margin-top: 0.75rem; }
   font-size:      0.7rem;
   font-weight:    600;
   letter-spacing: 0.08em;
+  font-family: var(--font-body);
   text-transform: uppercase;
   color:          var(--color-muted);
 }
@@ -183,6 +195,7 @@ p  { max-width: 68ch; margin-top: 0.75rem; }
   padding:       0.5rem 0.75rem;
   font-size:     0.875rem;
   font-weight:   500;
+  font-family: var(--font-body);
   color:         var(--color-text);
   border-radius: var(--radius-sm);
   transition:    background 0.1s ease;
