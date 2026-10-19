@@ -1,0 +1,250 @@
+:root {
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --color-bg:        #0d0f14;
+  --color-header:    #11141a;
+  --color-surface:   #171b27;
+  --color-border:    #2a3148;
+
+  --color-primary:   #F4B73F; 
+  --color-on-primary:#14110a;  
+  --color-accent:    #5B7CFA; 
+
+  --color-text:      #eef0f6;
+  --color-muted:     #98a0b8;
+
+--color-status-progress:      #F4B73F; 
+--color-status-done:          #3DDC97;  
+--color-status-planned:       #2b5bb6;  
+--color-status-considering: #A87BFA; 
+}
+.html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.body {
+    font-family: var((var(--font-body)));
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+.container {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family:  var(--font-display);
+  line-height:  1.2;
+  font-weight:  700;
+  color:        var(--color-text);
+}
+
+.h1 { font-size: clamp(3rem, 5vw, 4rem); letter-spacing: -0.02em; }
+.h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -0.01em; margin-top: 2.5rem; }
+.h3 { font-size: 1.2rem; font-weight: 600; margin-top: 2rem; }
+.h4 { font-size: 1rem; font-weight: 600; margin-top: 2rem; }
+.h5 {font-size: 0.875rem;font-weight: 600;letter-spacing: 0.06em;text-transform: uppercase;margin-top: 1.5rem;}
+.h6 {font-size: 0.75rem;font-weight: 600;letter-spacing: 0.08em;text-transform: uppercase;color: var(--color-muted);margin-top: 1.5rem;}
+
+p  { max-width: 68ch; margin-top: 0.75rem; }
+.banner {
+
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 100;
+    height: inherit;
+    overflow:visible;
+}
+.logo {
+  width:  38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+.topbar {
+  position:         sticky;
+  top:              0;
+  z-index:          100;
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  padding:          0 2rem;
+  height:           60px;
+  background:       var(--color-surface);
+  border-bottom:    1px solid var(--color-border);
+  backdrop-filter:  blur(8px);
+}
+.topbar-wordmark {
+  font-family:    var(--font-display);
+  font-size:      1.1rem;
+  font-weight:    700;
+  letter-spacing: -0.01em;
+  color:          var(--color-text);
+}
+.topbar-logo {
+  display:     flex;
+  align-items: center;
+  gap:         0.65rem;
+}
+
+.topbar-nav {
+  display:    flex;
+  align-items: center;
+  gap:        1.75rem;
+}
+
+.nav-link {
+  font-size:   0.9rem;
+  font-weight: 500;
+  color:       var(--color-muted);
+  transition:  color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  display:     flex;
+  align-items: center;
+  gap:         0.3rem;
+  font-family: var(--font-body);
+  font-size:   0.9rem;
+  font-weight: 500;
+  color:       var(--color-muted);
+  background:  none;
+  border:      none;
+  cursor:      pointer;
+  padding:     0;
+  transition:  color 0.15s ease;
+}
+
+.dropdown-trigger:hover,
+.dropdown.open .dropdown-trigger {
+  color: var(--color-text);
+}
+
+.dropdown-chevron {
+  width:      10px;
+  height:     10px;
+  transition: transform 0.2s ease;
+}
+
+.dropdown.open .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.dropdown-panel {
+  position:      absolute;
+  top:           calc(100% + 10px);
+  right:         0;
+  left:          auto;
+  min-width:     200px;
+  background:    var(--color-surface);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding:       0.4rem;
+  box-shadow:    0 8px 24px rgba(0,0,0,0.4);
+  opacity:       0;
+  visibility:    hidden;
+  transform:     translateY(-4px);
+  transition:    opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+}
+
+.dropdown.open .dropdown-panel {
+  opacity:    1;
+  visibility: visible;
+  transform:  translateY(0);
+}
+
+.dropdown-group-label {
+  display:        block;
+  padding:        0.4rem 0.75rem 0.2rem;
+  font-size:      0.7rem;
+  font-weight:    600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color:          var(--color-muted);
+}
+
+.dropdown-item {
+  display:       block;
+  padding:       0.5rem 0.75rem;
+  font-size:     0.875rem;
+  font-weight:   500;
+  color:         var(--color-text);
+  border-radius: var(--radius-sm);
+  transition:    background 0.1s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--color-border);
+}
+.roadmap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1.5rem;
+  width: 100%;
+}
+.page-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  max-width: 1400px;
+  margin:    0 auto;
+  padding:   3rem 2rem 6rem;
+}
+.roadmap-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 200px;
+  height: 300px;
+  padding: 0px;
+  border: 5px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+.roadmap-box-title{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  
+  width: 100%;
+  height: 50px;
+  padding: 0px;
+  margin:  0px;
+  background-color: var(--color-header);
+}
+.roadmap-status{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 0px;
+  margin: auto 0 1rem;
+  box-sizing: border-box;
+  color: var(--color-on-primary);
+  font-weight: 600;
+}
+.roadmap-status--completed  { background-color: var(--color-status-done); }
+.roadmap-status--progress   { background-color: var(--color-status-progress); }
+.roadmap-status--planned { background-color: var(--color-status-planned); }
+.roadmap-status--considering   { background-color: var(--color-status-considering); }
