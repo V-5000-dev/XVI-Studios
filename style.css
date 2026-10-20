@@ -12,6 +12,8 @@
 
   --color-text:      #eef0f6;
   --color-muted:     #98a0b8;
+  --color-itchio: #fa5c5c;
+  --color-discord: #5865F2;
 
 --color-status-progress:      #F4B73F; 
 --color-status-done:          #3DDC97;  
@@ -27,21 +29,35 @@ html {
     overflow-x: hidden;
 }
 body {
-    font-family: var((var(--font-body)));
+    font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
     max-width: 100%;
     overflow-x: hidden !important;
 }
+.container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 1rem;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
 html, body {
   overflow-x: hidden;
   width: 100%;
 }
-.container {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
+.stack{
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
 }
 h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  text-transform: none;
   font-family:  var(--font-display);
   line-height:  1.2;
   font-weight:  700;
@@ -50,10 +66,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: clamp(3rem, 5vw, 4rem); letter-spacing: -0.02em; }
 h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -0.01em; margin-top: 2.5rem; }
-h3 { font-size: 1.2rem; font-weight: 600; margin-top: 2rem; }
+h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); }
 h4 { font-size: 1rem; font-weight: 600; margin-top: 2rem; }
-h5 {font-size: 0.875rem;font-weight: 600;letter-spacing: 0.06em;text-transform: uppercase;margin-top: 1.5rem;}
-h6 {font-size: 0.75rem;font-weight: 600;letter-spacing: 0.08em;text-transform: uppercase;color: var(--color-muted);margin-top: 1.5rem;}
+h5 {font-size: 0.875rem;font-weight: 600;letter-spacing: 0.06em;margin-top: 1.5rem;}
+h6 {font-size: 0.75rem;font-weight: 600;letter-spacing: 0.08em;color: var(--color-muted);margin-top: 1.5rem;}
 
 p  { max-width: 68ch; margin-top: 0.75rem; }
 html, body {
@@ -209,6 +225,7 @@ html, body {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: stretch;
+  font: var(--font-display);
   gap: 1.5rem;
   width: 100%;
 }
@@ -246,7 +263,7 @@ html, body {
   background-color: var(--color-header);
 }
 .roadmap-status{
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -261,3 +278,41 @@ html, body {
 .roadmap-status--progress   { background-color: var(--color-status-progress); }
 .roadmap-status--planned { background-color: var(--color-status-planned); }
 .roadmap-status--considering   { background-color: var(--color-status-considering); }
+.link-row{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.link-box {
+  border:4px solid #000000;
+  border-radius: 16px;
+  width: 400px;
+  height: 120px;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, border-color 0.15s;
+  background-color: var(--color-on-primary);
+}
+.link-box img {
+  margin-left: auto;
+  width: 80px;
+  height: auto;
+}
+.link-box:hover {
+  border-color: var(--color-on-primary);
+  transform: translateY(-2px);
+}
+.link-box--itchio  { background-color: var(--color-itchio); }
+.link-box--discord { background-color: var(--color-discord); }
+.text-box{
+  max-width: 800px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  
+}

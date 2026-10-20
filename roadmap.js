@@ -41,8 +41,8 @@ const projects = [
     status: "completed",
   },
   {
-    title: "Further Enemy Variety and Functionality",
-    description: "Certain enemies, such as vehicles, can spawn further enemies upon dying. Missile Truck enemies can stop midway through the path and damage the player.",
+    title: "Further Enemy Functionality",
+    description: "Certain enemies can have speical abilites or mechanics. ",
     status: "planned",
   },
     {
