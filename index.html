@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XVI Studios</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Chakra+Petch:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
+    <title>FRCTeach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Chakra+Petch:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body style="background-color: var(--color-bg)">
@@ -14,76 +14,72 @@
     <div class="banner"><img src="xvibanner.png" alt="XVI Studios"></div>
 
     <main class="page-content">
+    <div class = "stack">
+   <div class = "container">
+    <div class = "text-box">
+      <div class = "intro-text">
+    <h2><em>Welcome to XVI Studios. This site is where I share my Unity projects and the work behind them. You can play my released games, follow the development of what I’m currently building, or just explore the site.</em></h2>
+    </div>
+    </div>
+    </div>
+    <div class = "stack">
+    <div class = "container">
+    <div class="link-row">
+        <a class="link-box link-box--thunderstorm" href="http://127.0.0.1:5500/thunderstormhorror.html">
+      <h3>Pinned Project:<br>Thunderstorm: Horror</h3>
+      <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📌</text></svg>" alt="Pin">
+    </a>
+    <a class="link-box link-box--militarized" href="http://127.0.0.1:5500/militarizedtds.html">
+      <h3>Follow the devolopmemnt: <br>Millitarized TDS</h3>
+     <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>" alt="Roadmap">
+    </a>
+   
+  </div>
+  <h3>Dive in. Play my published games directly on Itch.io, or join the Discord for updates, sneak peeks, and a place to hang out with the community.</h3>
+    <div class="link-row">
+    <a class="link-box link-box--itchio" href="https://xvi-studios.itch.io/">
+      <h3>View all of our published games directly on Itch.io</h3>
+      <img src = "https://static.itch.io/images/itchio-textless-white.svg" alt = "Itch IO logo">
+    </a>
+      <a class="link-box link-box--discord" href="https://discord.gg/mTGpg97ZKw">
+      <h3>Join our Discord for update patch notes, sneap peaks, and more.</h3>
+      <img src = "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d7f4ef6498ac018f2c55_Symbol.svg" alt ="Disord Logo">
+    </a>
+  </div>
+  </div>
+  </div>
+  
+  <div class = "container">
+    <h1>Recent Dev Posts</h1>
+   <section id = "devlog" data-limit = "1">
+      <div id = "devlog-content"Loading...></div>
 
-      <div class="stack">
-        <div class="container">
-          <div class="text-box">
-            <div class="intro-text">
-              <h2><em>Welcome to XVI Studios. This site is where I share my Unity projects and the work behind them. You can play my released games, follow the development of what I’m currently building, or just explore the site.</em></h2>
-            </div>
-          </div>
-        </div>
-      </div>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script>
+  const section = document.getElementById("devlog");
+  const box = document.getElementById("devlog-content");
+  const limit = parseInt(section.dataset.limit, 10) || Infinity;
 
-      <div class="stack">
-        <div class="container">
-          <div class="link-row">
-            <a class="link-box link-box--thunderstorm" href="thunderstormhorror.html">
-              <h3>Pinned Project:<br>Thunderstorm: Horror</h3>
-              <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📌</text></svg>" alt="Pin">
-            </a>
-            <a class="link-box link-box--militarized" href="militarizedtds.html">
-              <h3>Follow the development:<br>Militarized TDS</h3>
-              <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>" alt="Roadmap">
-            </a>
-          </div>
+  fetch("updates.md")
+    .then((res) => {
+      if (!res.ok) throw new Error("Not found");
+      return res.text();
+    })
+    .then((text) => {
+      const posts = text.split(/\n---\n/).filter((p) => p.trim());
+      box.innerHTML = posts
+        .slice(0, limit)
+        .map((p) => "<article class='devlog-post'>" + marked.parse(p) + "</article>")
+        .join("");
+    })
+    .catch(() => {
+      box.textContent = "Couldn't load the devlog.";
+    });
+</script>
 
-          <h3>Dive in. Play my published games directly on Itch.io, or join the Discord for updates, sneak peeks, and a place to hang out with the community.</h3>
-
-          <div class="link-row">
-            <a class="link-box link-box--itchio" href="https://xvi-studios.itch.io/">
-              <h3>View all of our published games directly on Itch.io</h3>
-              <img src="https://static.itch.io/images/itchio-textless-white.svg" alt="Itch.io logo">
-            </a>
-            <a class="link-box link-box--discord" href="https://discord.gg/mTGpg97ZKw">
-              <h3>Join our Discord for update patch notes, sneak peeks, and more.</h3>
-              <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d7f4ef6498ac018f2c55_Symbol.svg" alt="Discord logo">
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <h1>Recent Dev Posts</h1>
-        <section id="devlog" data-limit="1">
-          <div id="devlog-content">Loading...</div>
-        </section>
-      </div>
-
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
-    <script>
-      const devlogSection = document.getElementById("devlog");
-      const devlogBox = document.getElementById("devlog-content");
-      const devlogLimit = parseInt(devlogSection.dataset.limit, 10) || Infinity;
-
-      fetch("updates.md")
-        .then((res) => {
-          if (!res.ok) throw new Error("Not found");
-          return res.text();
-        })
-        .then((text) => {
-          const posts = text.split(/\n---\n/).filter((p) => p.trim());
-          devlogBox.innerHTML = posts
-            .slice(0, devlogLimit)
-            .map((p) => "<article class='devlog-post'>" + marked.parse(p) + "</article>")
-            .join("");
-        })
-        .catch(() => {
-          devlogBox.textContent = "Couldn't load the devlog.";
-        });
-    </script>
+  </div>
+  </div> 
     <script src="main.js"></script>
   </body>
+   </main>
 </html>
