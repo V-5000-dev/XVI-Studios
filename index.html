@@ -50,7 +50,33 @@
   </div>
   
   <div class = "container">
-    <h1>About Us (Well, really, me)</h1>
+    <h1>Recent Dev Posts</h1>
+   <section id = "devlog" data-limit = "1">
+      <div id = "devlog-content"Loading...></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script>
+  const section = document.getElementById("devlog");
+  const box = document.getElementById("devlog-content");
+  const limit = parseInt(section.dataset.limit, 10) || Infinity;
+
+  fetch("updates.md")
+    .then((res) => {
+      if (!res.ok) throw new Error("Not found");
+      return res.text();
+    })
+    .then((text) => {
+      const posts = text.split(/\n---\n/).filter((p) => p.trim());
+      box.innerHTML = posts
+        .slice(0, limit)
+        .map((p) => "<article class='devlog-post'>" + marked.parse(p) + "</article>")
+        .join("");
+    })
+    .catch(() => {
+      box.textContent = "Couldn't load the devlog.";
+    });
+</script>
+
   </div>
   </div> 
     <script src="main.js"></script>

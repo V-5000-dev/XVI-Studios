@@ -50,30 +50,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  padding: 0 1rem;
-  gap: 1rem;
-  max-width: 100% !important;
-  overflow-x: hidden !important;
-}
-.container
-{
-  background: var(--color-on-primary);
-  border: 4px solid var(--color-border);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 10 auto;
   padding: 2rem 2rem 2rem;
   gap: 1rem;
   width: 100%;
   overflow-x: hidden !important;
 }
+.container
+{
+  box-sizing: border-box;
+  width: min(1100px, calc(100% - 2rem));
+  background: var(--color-on-primary);
+  border: 4px solid var(--color-border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  margin: 10 auto;
+  padding: 2rem 2rem 2rem;
+  gap: 1rem;
+  width: 90%;
+  overflow-x: hidden !important;
+}
 .stack{
   display: flex;
   flex-direction: column;
-  gap: 10rem;
+  gap: 15rem;
 }
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
